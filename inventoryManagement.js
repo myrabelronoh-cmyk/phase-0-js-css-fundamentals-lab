@@ -1,30 +1,28 @@
-const products = [
-  "Laptop",
-  "Phone",
-  "Headphones",
-  "Monitor"
-];
-
-console.log(products);
+const products = ["Laptop", "Phone", "Headphones", "Monitor"];
 
 function logFirstProduct() {
   console.log(products[0]);
 }
 
-logFirstProduct();
-
 function addProduct(productName) {
   products.push(productName);
 }
 
-addProduct("Keyboard");
-console.log(products);
-
 function updateProductName(position, newName) {
-  products[position] = newName;
+  if (position >= 0 && position < products.length) {
+    products[position] = newName;
+  }
 }
 
 function removeLastProduct() {
-  products.pop();
+  return products.pop();
 }
+
+module.exports = {
+  products,
+  logFirstProduct,
+  addProduct,
+  updateProductName,
+  removeLastProduct
+};
 
